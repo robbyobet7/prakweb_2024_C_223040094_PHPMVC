@@ -68,4 +68,10 @@ class Database
         $this->execute();
         return $this->smt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function rowCount()
+    {
+        // ini milik PDO
+        return $this->smt->rowCount();
+    }
 }
