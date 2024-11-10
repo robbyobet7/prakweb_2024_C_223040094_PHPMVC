@@ -1,4 +1,1 @@
-
-    <h1>My Pages</h1>
-</body>
-</html>
+<h1>My Pages</h1>

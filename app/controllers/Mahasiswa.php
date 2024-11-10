@@ -37,6 +37,7 @@ class Mahasiswa extends Controller
 
     public function hapus($id)
     {
+
         if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
             Flasher::setFlash('Berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/mahasiswa');
@@ -48,5 +49,22 @@ class Mahasiswa extends Controller
         }
     }
 
+    public function getubah()
+    {
+        echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']), true);
+    }
 
+    public function ubah()
+    {
+
+        if ($this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
 }
